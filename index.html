@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="og:title" content="Windows 11 Clone, with HTML, CSS, JS - by Developer Raman" />
+  <meta name="og:description" content="Windows 11 Clone, with HTML, CSS, JS - by Developer Raman" />
+  <meta name="og:image" content="https://avatars.githubusercontent.com/u/87947051?v=4" />
+  <title>Windows 11 Clone, with HTML, CSS, JS - by Developer Raman</title>
+  <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/87947051?v=4" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+  --nav-height: 3rem;
+  --max-height: 100vh;
+  --max-width: 100vw;
+  --img-nav-height: calc(var(--nav-height) - 1.5rem);
+  --w11-logo-gradient: linear-gradient(135deg, #6bd3ff, #0079d4);
+  --bg-color-search: #1e202c;
+  --border-color-search: #292b41;
+  --bottom-border-color-search: #9dcbe3;
+  --placeholder-color-search: #a2a5ae;
+  --glass-white-color: rgba(255, 255, 255, 0.1);
+  --footer-start-height: 4em;
+  --sun-gradient: linear-gradient(135deg, #ffef80, #ecaa00);
+  font-family: poppins, monospace;
+}
+
+body {
+  height: var(--max-height);
+  width: var(--max-width);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url(https://laaouatni.github.io/w11CSS/images/1dark.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  transition-duration: 0.5s;
+}
+
+body {
+  display: grid;
+  grid-template-columns: minmax(700px, 1fr) 1fr;
+}
+
+nav {
+  background: linear-gradient(
+    rgba(0, 0, 85, 0.075),
+    transparent,
+    rgba(0, 0, 85, 0.192)
+  );
+  height: var(--nav-height);
+  width: var(--max-width);
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  box-shadow: 0 0 1em rgba(0, 0, 255, 0.027);
+  backdrop-filter: blur(5em);
+}
+
+nav #nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+}
+
+#first-container,
+#second-container {
+  display: flex;
+  height: 100%;
+  width: auto;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#second-container {
+  gap: 0rem !important;
+}
+
+#first-container div svg,
+#first-container div img,
+#second-container div svg,
+#second-container div img {
+  aspect-ratio: 1;
+  height: var(--img-nav-height);
+  width: auto;
+  border-radius: 0.1em;
+}
+
+#first-container {
+  margin: auto;
+}
+
+#second-container #sistema-info div {
+  display: grid;
+  place-content: center;
+}
+
+#sistema-info {
+  height: 80%;
+  gap: 0.5em;
+  padding: 0 0.5em;
+  border-radius: 0.5em;
+  transition-duration: 0.5s;
+  color: white;
+  margin-right: 0.5em;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+#sistema-data {
+  height: 80%;
+  padding: 0 1em !important;
+  color: white;
+  margin-right: 0.5em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.65em;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#sistema-info:hover,
+#sistema-data:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+  transition-duration: 0.5s;
+}
+
+#sistema-info div {
+  margin: auto;
+}
+
+#first-container div {
+  aspect-ratio: 1;
+  border-radius: 0.1rem;
+  transition-duration: 0.2s;
+  height: 85%;
+  display: grid;
+  place-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0);
+}
+
+#second-container div svg {
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  transform: scale(0.7);
+}
+
+#first-container div:hover {
+  background-color: var(--glass-white-color);
+  border-radius: 0.5rem;
+  transition-duration: 0.1s;
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+#w11-logo {
+  border-radius: 0.2rem;
+  fill: white;
+}
+
+#first-container div:nth-child(2) svg {
+  color: #eff7ff;
+}
+
+#w11-start-section {
+  color: white;
+  align-self: center;
+  justify-self: center;
+}
+
+#windows-logo {
+  filter: brightness(1.6);
+}
+
+#w11-start-section {
+  display: grid;
+  backdrop-filter: blur(5em);
+  transition-duration: 0.5s;
+  width: 40em;
+  border-radius: 1em;
+  position: fixed;
+  bottom: calc(-150%);
+  overflow: hidden;
+  border: 2px solid var(--glass-white-color);
+  transition-timing-function: cubic-bezier(0.4, 0.01, 0.15, 1.1);
+}
+
+.padding-start:not(#footer-start-section) {
+  padding: 0 2em 1em 2em;
+}
+
+#cerca-input-start {
+  background-color: var(--bg-color-search);
+  padding: 0 1em;
+  box-sizing: border-box;
+  color: white;
+  width: 100%;
+  height: 3em;
+  font-size: 1em;
+  border-radius: 0.5em;
+  border: 1px solid var(--border-color-search);
+  border-bottom: 2px solid var(--bottom-border-color-search);
+}
+
+#cerca-input-start::placeholder {
+  color: var(--placeholder-color-search);
+}
+
+.input-div-start {
+  padding: 2em 2em 0 2em;
+}
+
+.app-container-header {
+  font-size: 0.95em;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 1.5em 1em;
+  align-items: center;
+}
+
+.app-container-header span {
+  filter: drop-shadow(0 0 1em white);
+}
+
+.app-container-header div {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.2em 0.2em 0.2em 0.5em;
+  border-radius: 0.5em;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  transition-duration: 0.2s;
+  font-weight: 300;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.app-container-header div:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition-duration: 0.5s;
+  border-top: none;
+}
+
+.app-container-header div svg {
+  padding: 0 0 0 0.5em;
+  fill: white !important;
+}
+
+#second-app-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5em;
+}
+
+#second-app-container div {
+  aspect-ratio: 1;
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  cursor: pointer;
+}
+
+#second-app-container div:hover {
+  background-color: var(--glass-white-color);
+  transition-duration: 0.1s;
+}
+
+#second-app-container img {
+  aspect-ratio: 1;
+  width: 2.5rem;
+  margin: 0.1em;
+}
+
+#second-app-container span {
+  font-size: 0.7em;
+  font-weight: lighter;
+  color: white;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+#second-app-container > div:active img {
+  transform: scale(0.8);
+  transition-duration: 0.3s;
+}
+
+#second-app-container > div img {
+  transition-duration: 0.3s;
+}
+
+.on-visible-start {
+  bottom: calc(var(--nav-height) + 1em) !important;
+  transition-duration: 0.5s;
+}
+
+label input {
+  display: none;
+}
+
+#not-mobile-friendly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  place-content: center;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  backdrop-filter: blur(2em);
+  gap: 1em;
+}
+
+#not-mobile-friendly #titolo-errore {
+  font-size: 6vw;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  font-weight: bolder;
+}
+
+#dettagli-errore {
+  font-size: 2.5vw;
+}
+
+#article-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+#article-container img {
+  aspect-ratio: 1;
+  width: 2.5em;
+  padding: 0.3em 1em;
+}
+
+#article-container > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  align-items: center;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+#article-container > div:hover {
+  background-color: var(--glass-white-color);
+  transition-duration: 0.5s;
+}
+
+#article-container > div > div:nth-child(2) > div:nth-child(1) {
+  font-size: 0.9em;
+}
+
+#article-container > div > div:nth-child(2) > div:nth-child(2) {
+  font-size: 0.8em;
+  margin-top: 0.2em;
+  opacity: 0.7;
+}
+
+#footer-start-section {
+  height: var(--footer-start-height);
+  backdrop-filter: blur(10em);
+  background-color: rgba(0, 0, 0, 0.514);
+  outline: var(--glass-white-color) solid 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 4em;
+  align-items: center;
+}
+
+.nome-utente-start-section,
+.spegni-pc-start-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em;
+  transition-duration: 0.2s;
+}
+
+.nome-utente-start-section:hover,
+.spegni-pc-start-section:hover {
+  background-color: var(--glass-white-color);
+  border-radius: 0.5em;
+  transition-duration: 0.5s;
+}
+
+.nome-utente-start-section svg {
+  height: 1.7em;
+  width: auto;
+  fill: white !important;
+}
+
+.spegni-pc-start-section svg {
+  height: 1.7em;
+  width: auto;
+  fill: white !important;
+}
+
+#first-container div:active > img,
+#first-container div:active > svg {
+  transform: scale(0.5);
+  transition-duration: 0.5s;
+}
+
+#first-container img,
+#first-container svg {
+  transition-duration: 0.5s;
+}
+
+#first-container > div[title]:hover::after,
+#sistema-info > div[title]:hover::after,
+#sistema-data[title]:hover::after {
+  content: attr(title);
+  color: white;
+  position: absolute;
+  transform: translateY(calc(-100% - 1em));
+  padding: 0.2em 0.5em;
+  border: 2px solid var(--glass-white-color);
+  border-radius: 0.5em;
+  font-size: 0.9em;
+  background-color: rgba(0, 0, 68, 0.623);
+  transition-duration: 0.5s;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-100% - 3em));
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#sistema-info > div[title]:hover::after {
+  transform: translateY(calc(-100% - 2em));
+  font-size: 0.6em;
+}
+
+#widget-section {
+  backdrop-filter: blur(1em);
+  background-color: rgba(0, 1, 63, 0.26);
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: 1em 0 calc(var(--nav-height) + 1em) 1em;
+  border-radius: 1em;
+  color: white;
+  padding: 1em;
+  border: 2px solid var(--glass-white-color);
+  transition-duration: 0.5s;
+  transform: translateX(calc(-100% - 5em));
+  transition-timing-function: cubic-bezier(0.4, 0.01, 0.15, 1.1);
+}
+
+#widget-section {
+  display: grid;
+  grid-template-areas: "meteo calendario" "galleria calendario" "galleria video" "todo todo";
+  gap: 1em;
+  grid-auto-columns: 1fr;
+  padding: 2em;
+}
+
+#widget-section > div {
+  border: 3px solid var(--glass-white-color);
+  border-radius: 0.7em;
+}
+
+#widget-section svg {
+  height: 1em;
+  aspect-ratio: 1;
+}
+
+.widget-header-card {
+  padding: 0.5em 1em;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.on-visible-widget {
+  transform: translateX(0%) !important;
+  transition-duration: 0.5s;
+}
+
+.sole-meteo {
+  height: 6em;
+  background: var(--sun-gradient);
+  box-shadow: 0em 0.5em 3em #ecaa00;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 1em;
+}
+
+.content-widget {
+  height: calc(100% - 40px - 3em);
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+  padding: 0 1em;
+}
+
+.temperatura-container {
+  font-size: 4em;
+  font-weight: 500;
+}
+
+.temperatura-container span:nth-of-type(2) {
+  font-size: 0.5em;
+  opacity: 0.5;
+}
+
+.btn-meteo-widget {
+  display: grid;
+  height: 3em;
+  border-top: 2px solid var(--glass-white-color);
+  place-content: center;
+  text-decoration: none;
+  color: white;
+  text-shadow: 0 0 1em white;
+  transition-duration: 0.3s;
+  border-bottom: 0px solid white;
+}
+
+.btn-meteo-widget:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
+  transition-duration: 0.5s;
+}
+
+.widget-header-card:hover {
+  border-bottom: 2px solid var(--glass-white-color);
+}
+
+#meteo-widget {
+  background: linear-gradient(135deg, #ffdd002d, #00ecd821);
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  animation: fadeOut-video 5s ease-in;
+  animation-fill-mode: forwards;
+  z-index: -1;
+}
+
+@keyframes fadeOut-video {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.pc-off {
+  transition-duration: 3s;
+  display: grid !important;
+  transition-timing-function: ease-out;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: black;
+  z-index: 1000;
+  animation: opacity 2s ease-in-out;
+}
+
+@keyframes opacity {
+  from {
+    display: none;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#spegni-section {
+  place-content: center;
+  transition-duration: 3s;
+}
+
+#spegni-section > div {
+  display: grid;
+  animation: rotateParent 2s ease-in-out infinite alternate;
+}
+
+@keyframes rotateParent {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#spegni-section {
+  display: none;
+}
+
+#spegni-section div > div {
+  position: relative;
+  background: white;
+  height: 1em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0em;
+  transition-duration: 1s;
+  animation: rotateChild 5s ease-in-out infinite alternate-reverse;
+}
+
+#spegni-section div > div {
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes rotateChild {
+  from {
+    transform: rotate(360deg);
+    opacity: 1;
+    transform-origin: 4em 15em;
+    margin: 0em;
+    background-color: blue;
+    box-shadow: 0 0 5em blue;
+  }
+  to {
+    transform: rotate(calc(var(--i) * 1deg));
+    filter: blur(0.2em);
+    opacity: 0.5;
+    transform-origin: 15em 4em;
+    margin: 1em;
+    height: 1.5em;
+  }
+}
+
+.on-visible-widget .coming-soon-widget {
+  display: grid;
+  place-self: center;
+  place-items: center;
+  font-size: 1.5em;
+  animation: opacity 2s ease-in-out;
+  height: calc(100% - 40px);
+  transition-duration: 0.5s;
+}
+
+.coming-soon-tab {
+  display: grid;
+  place-self: center;
+  place-items: center;
+  font-size: 1.5em;
+  animation: opacity 2s ease-in-out;
+  color: white;
+  /*center this div */
+  height: calc(100% - 2em);
+  transition-duration: 0.01s;
+}
+
+.not-visible {
+  display: none !important;
+}
+
+.windows-tab {
+  border: 2px solid rgba(255, 255, 255, 0.37);
+  min-height: 250px;
+  height: 400px;
+  backdrop-filter: blur(2em);
+  min-width: 250px;
+  width: 400px;
+  position: absolute;
+  display: none;
+  border-radius: 0.5em;
+  top: 1px;
+  left: 1px;
+  resize: both;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.middle-width-all-height {
+  height: 100vh !important;
+  width: 50vw !important;
+  top: 0px;
+  left: 0px;
+  transition-duration: 1s;
+}
+
+.all-width {
+  width: 100% !important;
+  transition-duration: 1s;
+}
+
+.topnavbar-tab {
+  height: 2em;
+  width: 100%;
+  background: #202020;
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto;
+  color: white;
+}
+
+.top-left-menu-tab {
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
+}
+
+.top-left-menu-tab svg {
+  height: 1em;
+  aspect-ratio: 1;
+  opacity: 0.5;
+  transition-duration: 0.5s;
+}
+
+.top-left-menu-tab svg:hover {
+  transition-duration: 0.3s;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 0.1em black);
+}
+
+.top-left-menu-tab div {
+  height: 2em;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.top-left-menu-tab div:hover {
+  background-color: var(--glass-white-color);
+}
+
+.top-left-menu-tab div:nth-child(3):hover {
+  background-color: rgb(255, 0, 25);
+}
+
+#tab-image {
+  aspect-ratio: 1;
+  width: 40%;
+}
+
+#search-content {
+  height: 40vh;
+}
+
+#notification-section {
+  display: grid;
+  place-content: center;
+  height: 30vh;
+  width: 30vh;
+  backdrop-filter: blur(3em);
+  position: fixed;
+  right: 1rem;
+  transform: translateX(150%);
+  bottom: calc(var(--nav-height) + 1rem);
+  border-radius: 0.5em;
+  background-color: rgba(0, 17, 255, 0.1);
+  border: 2px solid var(--glass-white-color);
+  font-size: 1.5em;
+  color: white;
+  transition-duration: 0.2s;
+}
+
+.notification-on {
+  transform: translateX(0%) !important;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.4, 0.01, 0.15, 1.1);
+}
+
+@media (max-width: 1500px) {
+  #myVideo {
+    transform: translatex(16%);
+  }
+}
+
+@media (max-width: 1350px) {
+  #myVideo {
+    transform: translatex(15%);
+  }
+}
+
+@media (max-width: 1200px) {
+  #myVideo {
+    transform: translatex(22%);
+  }
+}
+
+@media (max-width: 1270px) {
+  #myVideo {
+    transform: translatex(18%);
+  }
+}
+
+@media (max-width: 1000px) {
+  #myVideo {
+    transform: translatex(25%);
+  }
+}
+
+@media (max-width: 900px) {
+  #myVideo {
+    transform: translatex(30%);
+  }
+}
+
+@media (max-width: 800px) {
+  #not-mobile-friendly {
+    display: grid;
+  }
+}
+
+@media (max-height: 950px) {
+  #article-container > :nth-child(-n + 2) {
+    display: none;
+  }
+}
+
+@media (max-height: 850px) {
+  #article-container > :nth-child(-n + 4) {
+    display: none;
+  }
+}
+
+@media (max-height: 750px) {
+  #article-div {
+    display: none;
+  }
+}
+
+@media (max-height: 650px) {
+  #widget-section .coming-soon-widget {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-height: 600px) {
+  #not-mobile-friendly {
+    display: grid;
+  }
+}
+
+/* new code in beta */
+
+#div {
+  border: 1px solid #1d75fe;
+  background: #1d73fe38;
+  display: none;
+  position: absolute;
+  border-radius: 0.2em;
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- barra di navigazion in basso -->
+  <nav>
+    <div id="nav-container">
+      <div id="first-container">
+        <!-- windows 11 logo -->
+        <div id="windows-div" title="start">
+          <svg id="windows-logo" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" width="58" height="58" version="1.1" viewBox="0 0 48.745 48.747">
+            <g fill="#0078d4">
+              <rect x="2.2848e-15" y="-.00011033" width="23.105" height="23.105" />
+              <rect x="25.64" y="-.00011033" width="23.105" height="23.105" />
+              <rect x="2.2848e-15" y="25.642" width="23.105" height="23.105" />
+              <rect x="25.64" y="25.642" width="23.105" height="23.105" />
+            </g>
+          </svg>
+        </div>
+        <!-- search icon -->
+        <div id="search-div" title="cerca"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" class="svg-inline--fa fa-magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"></path>
+          </svg></div>
+        <!-- windows 11 widget -->
+        <div id="widget-div" title="widget"><img src="https://laaouatni.github.io/w11CSS/images/w11-widget-icon.png" alt=""></div>
+      </div>
+      <div id="second-container">
+        <div id="sistema-info">
+          <!-- wifi -->
+          <div title="Local-WiFi"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wifi" class="svg-inline--fa fa-wifi" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+              <path fill="currentColor" d="M319.1 351.1c-35.35 0-64 28.66-64 64.01s28.66 64.01 64 64.01c35.34 0 64-28.66 64-64.01S355.3 351.1 319.1 351.1zM320 191.1c-70.25 0-137.9 25.6-190.5 72.03C116.3 275.7 115 295.9 126.7 309.2C138.5 322.4 158.7 323.7 171.9 312C212.8 275.9 265.4 256 320 256s107.3 19.88 148.1 56C474.2 317.4 481.8 320 489.3 320c8.844 0 17.66-3.656 24-10.81C525 295.9 523.8 275.7 510.5 264C457.9 217.6 390.3 191.1 320 191.1zM630.2 156.7C546.3 76.28 436.2 32 320 32S93.69 76.28 9.844 156.7c-12.75 12.25-13.16 32.5-.9375 45.25c12.22 12.78 32.47 13.12 45.25 .9375C125.1 133.1 220.4 96 320 96s193.1 37.97 265.8 106.9C592.1 208.8 600 211.8 608 211.8c8.406 0 16.81-3.281 23.09-9.844C643.3 189.2 642.9 168.1 630.2 156.7z"></path>
+            </svg></div>
+          <!-- vulume -->
+          <div title="Audio Disattivato"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="volume-xmark" class="svg-inline--fa fa-volume-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor" d="M301.2 34.85c-11.5-5.188-25.02-3.122-34.44 5.253L131.8 160H48c-26.51 0-48 21.49-48 47.1v95.1c0 26.51 21.49 47.1 48 47.1h83.84l134.9 119.9c5.984 5.312 13.58 8.094 21.26 8.094c4.438 0 8.972-.9375 13.17-2.844c11.5-5.156 18.82-16.56 18.82-29.16V64C319.1 51.41 312.7 40 301.2 34.85zM513.9 255.1l47.03-47.03c9.375-9.375 9.375-24.56 0-33.94s-24.56-9.375-33.94 0L480 222.1L432.1 175c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l47.03 47.03l-47.03 47.03c-9.375 9.375-9.375 24.56 0 33.94c9.373 9.373 24.56 9.381 33.94 0L480 289.9l47.03 47.03c9.373 9.373 24.56 9.381 33.94 0c9.375-9.375 9.375-24.56 0-33.94L513.9 255.1z"></path>
+            </svg></div>
+          <!-- battery -->
+          <div title="Batteria Scarica"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="battery-quarter" class="svg-inline--fa fa-battery-quarter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor" d="M192 192H96v128h96V192zM544 192V160c0-35.35-28.65-64-64-64H64C28.65 96 0 124.7 0 160v192c0 35.35 28.65 64 64 64h416c35.35 0 64-28.65 64-64v-32c17.67 0 32-14.33 32-32V224C576 206.3 561.7 192 544 192zM480 352H64V160h416V352z"></path>
+            </svg></div>
+        </div>
+        <div id="sistema-data">
+          <div id="orario-data">12:00</div>
+          <div id="calendario-data" title="dataCalendario">30/12/2021</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- start section, che si apre con il buttone windows tramite javascript -->
+  <section id="w11-start-section" class="">
+    <div class="input-div-start"><input type="text" id="cerca-input-start" placeholder="scrivi qui il testo da cercare"></div>
+    <div class="padding-start">
+      <div id="apps-container">
+        <div class="app-container-header">
+          <span>Aggiunto</span>
+          <div>
+            <span>Tutte le app</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+              <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+            </svg>
+          </div>
+        </div>
+        <div id="second-app-container">
+          <!-- 1 LINEA ORRIZONTALE -->
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/edge-icon.png" alt="edge icon">
+            <span>Edge</span>
+          </div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/word-icon.png" alt="word icon"><span>Word</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/excel-icon.png" alt="excel icon"><span>Excel</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/powerpoint-icon.png" alt="powerpoint icon"><span>Powerpoint</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/ms-office.ico" alt="office icon microsoft"><span>Office</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/outlook-icon.png" alt="outlook icon"><span>Posta</span></div>
+          <!-- 2 LINEA ORRIZONTALE -->
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/calendar-icon.png" alt="calendar icon"><span>Calendario</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/ms-store-icon.png" alt="microsoft store icon"><span>Microsoft Store</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/ms-foto-icon.ico" alt="galleria icon by microsoft 11"><span>Foto</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/ms-video-icon.ico" alt="microsoft video icon by microsoft"><span>Film & TV</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/Paint-2D.ico" alt="paint 2d icon by microsoft"><span>Paint</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/Paint-3D.ico" alt="paint 2d icon by microsoft"><span>Paint 3D</span></div>
+          <!-- 3 LINEA ORRIZONTALE -->
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/Whiteboard.ico" alt="whiteboard icon by microsoft"><span>WhiteBoard</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/ms-impostazioni-icon.ico" alt="impostazioni icon by microsoft"><span>Impostazioni</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/ms-skype.ico" alt="skype icon by microsoft"><span>Skype</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/vs-code.ico" alt="vs code icon by microsoft"><span>VS code</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/vs-normal.ico" alt="visual Studio normal icon by microsoft"><span>Visual Studio</span></div>
+          <div class="app-icon"><img src="https://laaouatni.github.io/w11CSS/images/ms-file-explorer.ico" alt="file Explorer icon by microsoft"><span>Esplora File</span></div>
+        </div>
+      </div>
+      <!-- la parte dove ci sono le CARTELLE -->
+      <div id="article-div">
+        <div class="app-container-header">
+          <span>Articoli consigliati</span>
+          <div>
+            <span>Altro</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+              <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+            </svg>
+          </div>
+        </div>
+        <div id="article-container">
+          <!-- 1 LINEA ORIZZONTALE -->
+          <div>
+            <div><img src="https://laaouatni.github.io/w11CSS/images/Photos-folder.ico" alt="folder microsoft"></div>
+            <div>
+              <div>Nome Cartella</div>
+              <div>30 minuti fa</div>
+            </div>
+          </div>
+          <div>
+            <div><img src="https://laaouatni.github.io/w11CSS/images/Photos-folder.ico" alt="folder microsoft"></div>
+            <div>
+              <div>Nome Cartella</div>
+              <div>30 minuti fa</div>
+            </div>
+          </div>
+          <!-- 2 LINEA ORIZZONTALE -->
+          <div>
+            <div><img src="https://laaouatni.github.io/w11CSS/images/Photos-folder.ico" alt="folder microsoft"></div>
+            <div>
+              <div>Nome Cartella</div>
+              <div>30 minuti fa</div>
+            </div>
+          </div>
+          <div>
+            <div><img src="https://laaouatni.github.io/w11CSS/images/Photos-folder.ico" alt="folder microsoft"></div>
+            <div>
+              <div>Nome Cartella</div>
+              <div>30 minuti fa</div>
+            </div>
+          </div>
+          <!-- 3 LINEA ORIZZONTALE -->
+          <div>
+            <div><img src="https://laaouatni.github.io/w11CSS/images/Photos-folder.ico" alt="folder microsoft"></div>
+            <div>
+              <div>Nome Cartella</div>
+              <div>30 minuti fa</div>
+            </div>
+          </div>
+          <div>
+            <div><img src="https://laaouatni.github.io/w11CSS/images/Photos-folder.ico" alt="folder microsoft"></div>
+            <div>
+              <div>Nome Cartella</div>
+              <div>30 minuti fa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- la parte più in basso della START section (buttone spegni e nome utente) -->
+    <div id="footer-start-section">
+      <div class="nome-utente-start-section">
+        <!-- icona UTENTE -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+          <path d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z"></path>
+        </svg>
+        <span>Laaouatni.</span>
+      </div>
+      <div class="spegni-pc-start-section">
+        <!-- icona SPEGNI -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+          <path d="M12 21c4.411 0 8-3.589 8-8 0-3.35-2.072-6.221-5-7.411v2.223A6 6 0 0 1 18 13c0 3.309-2.691 6-6 6s-6-2.691-6-6a5.999 5.999 0 0 1 3-5.188V5.589C6.072 6.779 4 9.65 4 13c0 4.411 3.589 8 8 8z"></path>
+          <path d="M11 2h2v10h-2z"></path>
+        </svg>
+      </div>
+    </div>
+    <!-- ricerca content -->
+    <div id="search-content" class="">
+      <div class="coming-soon-tab">coming soon...</div>
+    </div>
+  </section>
+  <section id="widget-section" class="">
+    <div style="grid-area: meteo;" id="meteo-widget">
+      <div class="widget-header-card">
+        <span>METEO</span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-vertical" class="svg-inline--fa fa-ellipsis-vertical" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
+          <path fill="currentColor" d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"></path>
+        </svg>
+      </div>
+      <div class="content-widget">
+        <div class="sole-meteo"></div>
+        <div class="temperatura-container">
+          <span>20</span>
+          <span>°C</span>
+        </div>
+      </div>
+      <a class="btn-meteo-widget" href="https://weather.com/it-IT/tempo/oggi/l/62aee98dba8cc9c051a3753c27e85efd93f931abdd92a0010ab567ecfeb93d64" target="_blank">più dettagli</a>
+    </div>
+    <div style="grid-area: calendario;">
+      <div class="widget-header-card">
+        <span>Calendario</span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-vertical" class="svg-inline--fa fa-ellipsis-vertical" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
+          <path fill="currentColor" d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"></path>
+        </svg>
+      </div>
+      <div class="coming-soon-widget">coming soon...</div>
+    </div>
+    <div style="grid-area: galleria;">
+      <div class="widget-header-card">
+        <span>Galleria</span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-vertical" class="svg-inline--fa fa-ellipsis-vertical" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
+          <path fill="currentColor" d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"></path>
+        </svg>
+      </div>
+      <div class="coming-soon-widget">coming soon...</div>
+    </div>
+    <div style="grid-area: video;">
+      <div class="widget-header-card">
+        <span>Video</span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-vertical" class="svg-inline--fa fa-ellipsis-vertical" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
+          <path fill="currentColor" d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"></path>
+        </svg>
+      </div>
+      <div class="coming-soon-widget">coming soon...</div>
+    </div>
+    <div style="grid-area: todo;">
+      <div class="widget-header-card">
+        <span>Todo</span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis-vertical" class="svg-inline--fa fa-ellipsis-vertical" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512">
+          <path fill="currentColor" d="M64 360C94.93 360 120 385.1 120 416C120 446.9 94.93 472 64 472C33.07 472 8 446.9 8 416C8 385.1 33.07 360 64 360zM64 200C94.93 200 120 225.1 120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200zM64 152C33.07 152 8 126.9 8 96C8 65.07 33.07 40 64 40C94.93 40 120 65.07 120 96C120 126.9 94.93 152 64 152z"></path>
+        </svg>
+      </div>
+      <div class="coming-soon-widget">coming soon...</div>
+    </div>
+  </section>
+  <section id="notification-section">
+    <div>coming soon...</div>
+  </section>
+  <div class="extra">
+    <!-- VIDEO animazione Iniziale Sfondo -->
+    <video autoplay muted id="myVideo">
+      <source src="./images/video-1dark.mp4" type="video/mp4">
+    </video>
+    <section id="not-mobile-friendly">
+      <div id="titolo-errore">
+        Developer Raman
+      </div>
+
+      <div id="dettagli-errore">
+      
+        <div>
+            <span>Press F11</span>
+        </div>
+      </div>
+    </section>
+    <section id="spegni-section" class="">
+      <div>
+        <div style="--i: 1;"></div>
+        <div style="--i: 2;"></div>
+        <div style="--i: 3;"></div>
+        <div style="--i: 4;"></div>
+        <div style="--i: 5;"></div>
+      </div>
+    </section>
+    <div class="windows-tab">
+      <div class="tab-content">
+        <div class="topnavbar-tab">
+          <div class="nome-tab">coming soon...</div>
+          <div class="top-left-menu-tab">
+            <!-- meno -->
+            <div>
+              <svg id="min-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" class="svg-inline--fa fa-minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z"></path>
+              </svg>
+            </div>
+            <!-- quadrato -->
+            <div>
+              <svg id="max-icon" aria-hidden="true" focusable="false" data-prefix="far" data-icon="square" class="svg-inline--fa fa-square" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M384 31.1H64c-35.35 0-64 28.65-64 63.1v320c0 35.35 28.65 64 64 64h320c35.35 0 64-28.65 64-64v-320C448 60.65 419.3 31.1 384 31.1zM400 416c0 8.822-7.178 16-16 16H64c-8.822 0-16-7.178-16-16V96c0-8.822 7.178-16 16-16h320c8.822 0 16 7.178 16 16V416z"></path>
+              </svg>
+            </div>
+            <!-- per -->
+            <div>
+              <svg id="close-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                <path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="coming-soon-tab">
+          <span class="coming-soon-span">
+            coming soon...
+          </span>
+          <img id="tab-image" src="" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="div"></div>
+
+  <script>
+    let startContainer = document.querySelector("#w11-start-section");
+let startBtn = document.querySelector("#windows-div");
+
+let widgetContainer = document.querySelector("#widget-section");
+let widgetBtn = document.querySelector("#widget-div");
+
+let spegniContainer = document.querySelector("#spegni-section");
+let spegniBtn = document.querySelector(".spegni-pc-start-section");
+
+let paddingContainer = document.querySelector(".padding-start");
+let searchBtn = document.querySelector("#search-div");
+
+let searchContainer = document.querySelector("#search-content");
+let footerStartContainer = document.querySelector("#footer-start-section");
+
+let windowsTab = document.querySelector(".windows-tab");
+
+let topPartTab = document.querySelector(".topnavbar-tab");
+
+let closeBtn = document.querySelector("#close-icon");
+let MaxBtn = document.querySelector("#max-icon");
+let minBtn = document.querySelector("#min-icon");
+
+let heightTab = document.querySelector(".coming-soon-tab");
+
+let appIcon = document.querySelectorAll(".app-icon");
+let nomeTab = document.querySelector(".nome-tab");
+let tabImage = document.querySelector("#tab-image");
+let spanComingSoon = document.querySelector(".coming-soon-span");
+
+let nav = document.querySelector("nav");
+let iconNav = document.querySelector("#first-container");
+
+let notifBtns = document.querySelector("#second-container");
+let notifContainer = document.querySelector("#notification-section");
+
+var vh = window.innerHeight / 100;
+var vw = window.innerWidth / 100;
+
+let isTopBarClicked = false;
+
+let div = document.querySelector("#div");
+
+let firstPositionX;
+let firstPositionY;
+
+let lastPositionX;
+let lastPositionY;
+
+// from bottom to top WINDOWS START animation
+startBtn.addEventListener("click", function () {
+  searchContainer.style.display = "none";
+  paddingContainer.style.display = "grid";
+  footerStartContainer.style.display = "flex";
+  openOneWinCloseOther();
+});
+
+// from bottom to top WINDOWS START animation
+widgetBtn.addEventListener("click", function () {
+  if (startContainer.classList.contains("on-visible-start")) {
+    startContainer.classList.toggle("on-visible-start");
+    widgetContainer.classList.toggle("on-visible-widget");
+  } else {
+    widgetContainer.classList.toggle("on-visible-widget");
+  }
+});
+
+// turn off computer (graficamente e virtualmente)
+spegniBtn.addEventListener("click", function () {
+  spegniContainer.classList.toggle("pc-off");
+  alert(
+    "adesso, windows 11 (web edition) \nsi spegnerà virtualmente, \n \nper ritornare alla homepage, \ncliccare qualsiasi punto sullo schermo!"
+  );
+});
+
+spegniContainer.addEventListener("click", function () {
+  spegniContainer.classList.toggle("pc-off");
+});
+
+// SEARCH function in beta
+searchBtn.addEventListener("click", function () {
+  paddingContainer.style.display = "none";
+  footerStartContainer.style.display = "none";
+  searchContainer.style.display = "grid";
+  openOneWinCloseOther();
+});
+
+// windows moving tab
+topPartTab.addEventListener("mousedown", function () {
+  isTopBarClicked = true;
+  console.log("mousedown");
+  document.onmousemove = function (e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    var MaxWidth = document.documentElement.scrollWidth;
+    var MaxX = MaxWidth - windowsTab.offsetWidth;
+
+    if (x <= 0) {
+      leftTab();
+    } else if (y <= 0) {
+      topTab();
+    } else if (x >= MaxX) {
+      rightTab();
+    } else {
+      windowsTab.style.transitionDuration = "0s";
+      windowsTab.style.left = x + "px";
+      windowsTab.style.top = y + "px";
+      if (windowsTab.offsetHeight > 90 * vh) {
+        windowsTab.style.height = "70vh";
+      }
+      windowsTab.style.removeProperty("transform");
+    }
+  };
+});
+
+// non mouve più la tab, quando non è necessario
+document.addEventListener("mouseup", function () {
+  document.onmousemove = null;
+});
+
+for (let i = 0; i < appIcon.length; i++) {
+  spanComingSoon.style.display = "grid";
+  tabImage.style.display = "none";
+  appIcon[i].addEventListener("click", function () {
+    windowsTab.style.display = "grid";
+    spanComingSoon.style.display = "none";
+    tabImage.style.display = "grid";
+    let appName = appIcon[i].querySelector("span").textContent;
+    nomeTab.textContent = appName;
+    /* get the image from the app icon */
+    let appImage = appIcon[i].querySelector("img").src;
+    tabImage.src = appImage;
+  });
+}
+
+// buttone per cancellare la tab (nascondere la tab)
+closeBtn.addEventListener("click", function () {
+  windowsTab.style.display = "none";
+});
+
+// crea un icona nella nav, e nasconde la tab
+minBtn.addEventListener("click", function () {
+  windowsTab.style.display = "none";
+  /*add element div with img to iconNav*/
+  let newDivNav = document.createElement("div");
+  let newImageIconNav = document.createElement("img");
+  newImageIconNav.src = tabImage.src;
+  newDivNav.appendChild(newImageIconNav);
+  iconNav.appendChild(newDivNav);
+  console.log("MINIMIZED TAB");
+});
+
+// ingrandisce la tab a seconda delle dimensioni dello schermo
+MaxBtn.addEventListener("click", function () {
+  topTab();
+});
+
+// per aprire le notifiche
+notifBtns.addEventListener("click", function () {
+  notifContainer.classList.toggle("notification-on");
+});
+
+function leftTab() {
+  windowsTab.style.left = 0 + "px";
+  windowsTab.style.top = 0 + "px";
+  windowsTab.style.removeProperty("right");
+  windowsTab.style.removeProperty("transform");
+  windowsTab.style.width = "50vw";
+  windowsTab.style.height = "calc(100vh - var(--nav-height))";
+  windowsTab.style.transitionDuration = "0.5s";
+  console.log("LEFT TAB");
+}
+
+function topTab() {
+  windowsTab.style.left = 0 + "px";
+  windowsTab.style.top = 0 + "px";
+  windowsTab.style.removeProperty("right");
+  windowsTab.style.removeProperty("transform");
+  windowsTab.style.width = "100vw";
+  windowsTab.style.height = "calc(100vh - var(--nav-height))";
+  windowsTab.style.transitionDuration = "0.5s";
+  console.log("TOP TAB");
+}
+
+function rightTab() {
+  windowsTab.style.transform = "translateX(99%)";
+  windowsTab.style.left = 0 + "px";
+  windowsTab.style.top = 0 + "px";
+  windowsTab.style.removeProperty("right");
+  windowsTab.style.width = "50vw";
+  windowsTab.style.height = "calc(100vh - var(--nav-height))";
+  windowsTab.style.transitionDuration = "0.5s";
+  console.log("RIGHT TAB");
+}
+
+// funzione per aprire una finestra e chiuderne l'altra (se c'è)
+function openOneWinCloseOther() {
+  if (widgetContainer.classList.contains("on-visible-widget")) {
+    widgetContainer.classList.toggle("on-visible-widget");
+    startContainer.classList.toggle("on-visible-start");
+  } else {
+    startContainer.classList.toggle("on-visible-start");
+  }
+}
+
+// crea un selezionatore provissorio a seconda della tua posizione del mouse
+function dragSelectorLogic() {
+  // tutta la funzione inizia dopo il mouse è cliccato
+  document.addEventListener("mousedown", function (e1) {
+    if (windowsTab.style.display == "grid") {
+      // se la tab è visibile, allora la funzione NON è attiva
+    } else {
+      // se START è visibile, allora si chiude in automatico
+      if (
+        e1.target.closest("#w11-start-section") != startContainer &&
+        startContainer.classList.contains("on-visible-start") &&
+        e1.target.closest("nav") != nav
+      ) {
+        startContainer.classList.remove("on-visible-start");
+        dragSelectorCode();
+      } // se WIDGET è visibile, allora si chiude in automatico
+      else if (
+        e1.target.closest("#widget-section") != widgetContainer &&
+        widgetContainer.classList.contains("on-visible-widget") &&
+        e1.target.closest("nav") != nav
+      ) {
+        widgetContainer.classList.remove("on-visible-widget");
+        dragSelectorCode();
+      } // se NOTIFICHE è visibile, allora si chiude in automatico
+      else if (
+        e1.target.closest("#notification-section") != notifContainer &&
+        notifContainer.classList.contains("notification-on") &&
+        e1.target.closest("nav") != nav
+      ) {
+        notifContainer.classList.remove("notification-on");
+        dragSelectorCode();
+      } // se si usa il Drag dentro START, WIDGET o NOTIFICHE, allora la funzione NON è attiva.
+      else if (
+        e1.target.closest("#w11-start-section") == startContainer ||
+        e1.target.closest("#notification-section") == notifContainer ||
+        e1.target.closest("#widget-section") == widgetContainer
+      ) {
+        console.log("You can't drag the tab here!");
+      } // altrimenti, la funzione è attiva
+      else {
+        dragSelectorCode();
+      }
+    }
+
+    function dragSelectorCode() {
+      // preseting del selezionatore
+      div.style.display = "block";
+
+      div.style.width = 0 + "px";
+      div.style.height = 0 + "px";
+
+      firstPositionX = e1.clientX;
+      firstPositionY = e1.clientY;
+
+      div.style.top = firstPositionY + "px";
+      div.style.left = firstPositionX + "px";
+
+      div.style.transition = "none";
+
+      document.addEventListener("mousemove", function (e2) {
+        lastPositionX = e2.clientX;
+        lastPositionY = e2.clientY;
+
+        // se la posizione X del mouse è cambiata, allora si aggiorna la posizione del selezionatore
+        // ingrandisce il selezionatore
+        if (firstPositionX - lastPositionX < 0) {
+          div.style.width = Math.round(lastPositionX - firstPositionX) + "px";
+        } // sposta il selezionatore, ma visivamente lo ingrandisce a sinistra (è un trick interressante)
+        else {
+          div.style.width = Math.round(firstPositionX - lastPositionX) + "px";
+          div.style.left = lastPositionX + "px";
+        }
+
+        // se la posizione Y del mouse è cambiata, allora si aggiorna la posizione del selezionatore
+        // ingrandisce il selezionatore
+        if (firstPositionY - lastPositionY < 0) {
+          div.style.height = Math.round(lastPositionY - firstPositionY) + "px";
+        } // sposta il selezionatore, ma visivamente lo ingrandisce in alto (è un trick interressante)
+        else {
+          div.style.height = Math.round(firstPositionY - lastPositionY) + "px";
+          div.style.top = lastPositionY + "px";
+        }
+      });
+
+      // una volta che non si clicca più, si chiude il selezionatore
+      // resettando prima con un'animazione
+      // poi togliendo il selezionatore (che è un div invisibile)
+      document.addEventListener("mouseup", function () {
+        div.style.width = "0px";
+        div.style.height = "0px";
+        div.style.transition = "all 0.3s";
+
+        // aspetta che prima finisca l'animazione poi rimuove il selezionatore
+        setTimeout(function () {
+          div.style.display = "none";
+        }, 300);
+      });
+    }
+  });
+}
+
+// ottenere l'ora corrente
+function getDate() {
+  let DataAttuale = new Date();
+
+  let giorno = DataAttuale.getDate();
+  let mese = DataAttuale.getMonth() + 1; // mese parte da 0
+  let anno = DataAttuale.getFullYear();
+
+  let ora = DataAttuale.getHours();
+  let minuti = DataAttuale.getMinutes();
+
+  let orarioContainer = document.getElementById("orario-data");
+  let calendarioContainer = document.getElementById("calendario-data");
+
+  // se l'ora/minuti è meno di 10, allora si aggiunge uno 0 prima
+  if (ora < 10 && minuti < 10) {
+    orarioContainer.innerHTML = "0" + ora + ":" + "0" + minuti;
+  } else if (ora < 10) {
+    orarioContainer.innerHTML = "0" + ora + ":" + minuti;
+  } else if (minuti < 10) {
+    orarioContainer.innerHTML = ora + ":" + "0" + minuti;
+  } else {
+    orarioContainer.innerHTML = ora + ":" + minuti;
+  }
+
+  // se il giorno/mese è meno di 10, allora si aggiunge uno 0 prima
+  if (giorno < 10 && mese < 10) {
+    calendarioContainer.innerHTML =
+      "0" + giorno + "/" + "0" + mese + "/" + anno;
+  } else if (giorno < 10) {
+    calendarioContainer.innerHTML = "0" + giorno + "/" + mese + "/" + anno;
+  } else if (mese < 10) {
+    calendarioContainer.innerHTML = giorno + "/" + "0" + mese + "/" + anno;
+  } else {
+    calendarioContainer.innerHTML = giorno + "/" + mese + "/" + anno;
+  }
+
+  document.getElementById("sistema-data").title =
+    orarioContainer.innerHTML + "  " + calendarioContainer.innerHTML;
+
+  // ogni minuto si aggiunge l'ora
+  // 1000 = 1 secondo... 1000 * 60 = 60000... 60000 = 1 minuto
+  setTimeout(function () {
+    getDate();
+  }, 60000); // 60 secondi
+}
+
+// le funzione chiamate sono inizializzate in queste funzioni
+dragSelectorLogic();
+getDate();
+
+function DispositivoNonSupportato() {
+  let AttualeWidthContainer = document.getElementById("width-attuale");
+  let AttualeHeightContainer = document.getElementById("height-attuale");
+
+  let widthSpiegazione = document.getElementById("width-spiegazione");
+  let heightSpiegazione = document.getElementById("height-spiegazione");
+
+  checkSopporto();
+
+  window.addEventListener("resize", function () {
+    checkSopporto();
+  });
+
+  function checkSopporto() {
+    // se la larghezza è inferiore a 800px, allora si mostra la spiegazione
+    if (window.innerWidth < 800) {
+      widthSpiegazione.innerHTML =
+        "ERRORE LARGHEZZA: ti serve <b>800px</b>" +
+        "   " +
+        "per visualizzare questa pagina";
+      AttualeWidthContainer.innerHTML = window.innerWidth + "px";
+      widthSpiegazione.style.color = "rgb(255, 0, 47)";
+    } else {
+      widthSpiegazione.innerHTML = "Larghezza del tuo Schermo Giusta!";
+      AttualeWidthContainer.innerHTML = "";
+      widthSpiegazione.style.color = "rgb(0, 255, 157)";
+    }
+
+    // se l'altezza è inferiore a 600px, allora si mostra la spiegazione
+    if (window.innerHeight < 600) {
+      heightSpiegazione.innerHTML =
+        "ERRORE ALTEZZA: ti serve <b>600px</b>" +
+        "   " +
+        "per visualizzare questa pagina";
+      AttualeHeightContainer.innerHTML = window.innerHeight + "px";
+      heightSpiegazione.style.color = "rgb(255, 0, 47)";
+    } else {
+      heightSpiegazione.innerHTML = "Altezza del tuo Schermo Giusta!";
+      AttualeHeightContainer.innerHTML = "";
+      heightSpiegazione.style.color = "rgb(0, 255, 157)";
+    }
+  }
+}
+
+DispositivoNonSupportato();
+
+  </script>
+</body>
+
+</html>
